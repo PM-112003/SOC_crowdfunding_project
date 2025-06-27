@@ -2,10 +2,41 @@
 I knew nothing about solidity programming or contract writing or web3/blockchain. I learned everything from scratch in this project!
 
 ## **Things I did**
-1. Learned about the basics of blockchain and how it works and why it makes transactions in real world safe and secure (3 days)
-2. Learned to create and set up my metamask account and sepoliaEth with some help from my mentor (2-3 days)
-3. Then learned about solidity programming from resources provided and practiced by building some simple smart contracts to get comfortable with the language and RemixIDE (10 days)
-4. Started with my crowdfunding project, struggled a lot with use of payable and but finally completed the project. (12 days)
+### 1. Secure Contribution System with Deadline & Target Logic
+- Users can contribute ETH using `sendEth()`.
+- Enforces a minimum contribution and restricts contributions after the deadline.
+- Tracks unique contributors and total funds raised.
+- `receive()` and `fallback()` functions allow direct ETH transfers to the contract.
+
+---
+
+### 2. Robust Refund Mechanism with Reentrancy Protection
+- Contributors can claim a refund if the target is not met after the deadline.
+- Implemented a custom `noReentrancy` modifier to secure withdrawals.
+- Resets contributor balance before transferring ETH to prevent double withdrawals.
+
+---
+
+### 3. Request-Based Fund Allocation via DAO-style Voting
+- The manager can create spending requests with a description, recipient, and amount.
+- Contributors vote on each request using `voteRequest()`.
+- Funds are released via `makePayment()` only if more than 50% of contributors approve.
+- Prevents misuse of funds and promotes decentralized decision-making.
+
+---
+
+### 4. Event Logging for Transparency & Auditing
+- Emitted events for: contributions, refunds, request creation, votes, and fund transfers.
+- Ensures transparent tracking and auditability of key contract actions.
+
+---
+
+### 5. Security & Access Control Best Practices
+- Used `onlyManager` modifier to restrict access to administrative functions.
+- Used `require` statements extensively to validate inputs and conditions.
+- Organized request data using `struct` and mappings for efficient management.
+- Applied defensive programming practices to ensure safety and clarity.
+
 
 ## **Things Learned**
 1. Tech : Metamask, RemixIDE, Solidity programming
